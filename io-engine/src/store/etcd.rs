@@ -31,6 +31,7 @@ impl std::fmt::Debug for Etcd {
 
 impl Etcd {
     /// Create a new instance of the etcd client
+    //[maxing COMMENT]: 创建新的etcd客户端。
     pub async fn new(endpoint: &str) -> Result<Etcd, StoreError> {
         Ok(Self(
             Client::connect([endpoint], None)
@@ -43,6 +44,7 @@ impl Etcd {
 #[async_trait]
 impl Store for Etcd {
     /// 'Put' a key-value pair into etcd.
+    //[maxing COMMENT]: 存放key val
     async fn put_kv<K: StoreKey, V: StoreValue>(
         &mut self,
         key: &K,
